@@ -1,0 +1,13 @@
+syntax = "proto3";
+package Network;
+
+enum ServiceNo{
+	none = 0;
+	C2SBattleCommand = 1;
+	S2CBattleCommand = 2;
+}
+
+message C2SPackage{
+	ServiceNo id = 1;
+	bytes data = 2;
+}

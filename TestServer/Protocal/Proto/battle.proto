@@ -1,0 +1,20 @@
+syntax = "proto3";
+package Network;
+
+enum CommandType{
+	eNone = 0;
+	ePos = 1;
+}
+
+message BattleCommand{
+	CommandType type = 1;
+}
+
+message C2SBattleCommand{
+	int32 turn_id = 1;
+	repeated BattleCommand commands = 2;
+}
+
+message S2CBattleCommand{
+	string result = 1;
+}
