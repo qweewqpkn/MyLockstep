@@ -84,10 +84,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\LockStep\CommandBuffer.cs" />
-    <Compile Include="Assets\LockStep\ICommand.cs" />
+    <Compile Include="Assets\Command\Command.cs" />
+    <Compile Include="Assets\Command\MoveCommand.cs" />
+    <Compile Include="Assets\Common\Singleton.cs" />
+    <Compile Include="Assets\Command\ICommand.cs" />
     <Compile Include="Assets\LockStep\LockStepManager.cs" />
-    <Compile Include="Assets\LockStep\TurnData.cs" />
+    <Compile Include="Assets\LockStep\LockStepData.cs" />
     <Compile Include="Assets\Main.cs" />
     <Compile Include="Assets\Network\Protobuf\Battle.cs" />
     <Compile Include="Assets\Network\Protobuf\Common.cs" />
