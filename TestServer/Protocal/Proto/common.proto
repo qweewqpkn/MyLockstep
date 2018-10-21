@@ -5,6 +5,10 @@ enum ServiceNo{
 	none = 0;
 	C2SBattleCommand = 1;
 	S2CBattleCommand = 2;
+	C2SReadyBattle = 3;
+	S2CStartBattle = 4;
+	C2SEnterRoom = 5;
+	S2CEnterRoom = 6;
 }
 
 message C2SPackage{

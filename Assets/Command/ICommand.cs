@@ -5,12 +5,8 @@ using System.Text;
 
 namespace LockStep
 {
-    interface ICommand
+    public interface ICommand
     {
         void Process();
-
-        byte[] Serialize();
-
-        T Deserialize<T>(byte[] bytes);
     }
 }

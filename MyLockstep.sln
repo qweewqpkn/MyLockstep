@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLockstep", "MyLockstep.csproj", "{DF43F304-6715-3CCC-1B48-DBEDA5858994}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{712C3716-BD87-BCAE-9BDA-49F614A3DCEF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DF43F304-6715-3CCC-1B48-DBEDA5858994}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DF43F304-6715-3CCC-1B48-DBEDA5858994}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DF43F304-6715-3CCC-1B48-DBEDA5858994}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DF43F304-6715-3CCC-1B48-DBEDA5858994}.Release|Any CPU.Build.0 = Release|Any CPU
+		{712C3716-BD87-BCAE-9BDA-49F614A3DCEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{712C3716-BD87-BCAE-9BDA-49F614A3DCEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{712C3716-BD87-BCAE-9BDA-49F614A3DCEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{712C3716-BD87-BCAE-9BDA-49F614A3DCEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

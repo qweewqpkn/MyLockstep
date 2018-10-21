@@ -146,7 +146,7 @@ namespace TestServer
 
         private void AcceptThread()
         {
-            IPAddress address = IPAddress.Parse("192.168.1.236");
+            IPAddress address = IPAddress.Parse("192.168.0.173");//1.236
             IPEndPoint endpoint = new IPEndPoint(address, 8888);
             mListenSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             mListenSocket.Bind(endpoint);
@@ -388,17 +388,11 @@ namespace TestServer
         static void Main(string[] args)
         {
             SocketServer.Instance.Init();
-            SocketServer.Instance.RegisterMessage<C2SBattleCommand>(ServiceNo.C2SbattleCommand, (socket, data) =>
-            {
-                Console.WriteLine(data.TurnId);
-            });
+            ProxyManager.Instance.Init();
+
             while (true)
             {
                 string content = Console.ReadLine();
-
-                S2CBattleCommand data = new S2CBattleCommand();
-                data.Result = content;;
-                SocketServer.Instance.BroadcastMessage(ServiceNo.S2CbattleCommand, data);
             }
         }
     }

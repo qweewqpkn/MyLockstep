@@ -1,4 +1,7 @@
-﻿using Network;
+﻿using Battle;
+using DG.Tweening;
+using LockStep;
+using Network;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,33 +9,36 @@ using UnityEngine.UI;
 
 public class Main : MonoBehaviour {
 
-    public Text text;
-    public Button button;
+    public GameObject mObj;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
+        DOTween.Init();
         SocketClient.Instance.Init();
-        SocketClient.Instance.RegisterMessage<S2CBattleCommand>(ServiceNo.S2CbattleCommand, (o) =>
-        {
-            text.text = o.Result;
-        });
-
-        button.onClick.AddListener(() =>
-        {
-            C2SBattleCommand data = new C2SBattleCommand();
-            data.TurnId = 100;
-            for(int i = 0; i < 5; i++)
-            {
-                BattleCommand command = new BattleCommand();
-                command.Type = CommandType.EPos;
-                data.Commands.Add(command);
-            }
-            SocketClient.Instance.SendData(ServiceNo.C2SbattleCommand, data);
-        });
-	}
+        BattleManager.Instance.Init(mObj);
+    }
 
     private void Update()
     {
+        LockStepManager.Instance.Update();
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            BattleManager.Instance.C2SEnterRoom();
+        }
+
+        if(Input.GetMouseButtonDown(1))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if(Physics.Raycast(ray, out hit))
+            {
+                Vector3 targetPos = hit.point;
+                MoveCommand commandData = new MoveCommand(BattleManager.Instance.mPlayerID, targetPos.x, targetPos.y, targetPos.z);
+                LockStepManager.Instance.AddCommand(commandData);
+            }
+        }
+
         SocketClient.Instance.Update();
     }
 }

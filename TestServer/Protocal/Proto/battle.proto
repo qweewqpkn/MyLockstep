@@ -3,18 +3,38 @@ package Network;
 
 enum CommandType{
 	eNone = 0;
-	ePos = 1;
+	eMove = 1;
 }
 
 message BattleCommand{
 	CommandType type = 1;
+	bytes data = 2;
+}
+
+message C2SEnterRoom{
+	
+}
+
+message S2CEnterRoom{
+	int64 player_id = 1;
+}
+
+message C2SReadyBattle{
+	int64 player_id = 1;
+}
+
+message S2CStartBattle{
+	repeated int64 player_id_list = 1;
 }
 
 message C2SBattleCommand{
 	int32 turn_id = 1;
-	repeated BattleCommand commands = 2;
+	int64 player_id = 2;
+	repeated BattleCommand commands = 3;
 }
 
 message S2CBattleCommand{
-	string result = 1;
+	int32 turn_id = 1;
+	int64 player_id = 2;
+	repeated BattleCommand commands = 3;
 }

@@ -8,31 +8,22 @@ namespace LockStep
     class TurnData
     {
         private int mTurnID;
-        private Dictionary<long, PlayerData> mPlayerDataDic;
+        private Dictionary<long, PlayerData> mPlayerDataDic = new Dictionary<long, PlayerData>();
 
-        public bool IsTurnDataReady(int playerNum)
-        {
-            if(mPlayerDataDic.Count == playerNum)
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-        public void AddCommand(long playerID, ICommand command)
+        public void AddCommand(long playerID, Command command)
         {
             PlayerData data;
             if(!mPlayerDataDic.TryGetValue(playerID, out data))
             {
-                data = new PlayerData(playerID);
+                data = new PlayerData();
+                data.mPlayerID = playerID;
                 mPlayerDataDic.Add(playerID, data);
             }
 
-            data.AddCommand(command);
+            data.mCommandList.Add(command);
         }
 
-        public void AddCommand(long playerID, List<ICommand> commandList)
+        public void AddCommand(long playerID, List<Command> commandList)
         {
             if(commandList == null)
             {
@@ -44,24 +35,39 @@ namespace LockStep
                 AddCommand(playerID, commandList[i]);
             }
         }
+
+        private bool IsTurnDataReady(int playerNum)
+        {
+            if (mPlayerDataDic.Count == playerNum)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public bool ProcessTurnData(int playerNum)
+        {
+            if(IsTurnDataReady(playerNum))
+            {
+                foreach(var item in mPlayerDataDic)
+                {
+                    for(int i = 0; i < item.Value.mCommandList.Count; i++)
+                    {
+                        item.Value.mCommandList[i].Process();
+                    }
+                }
+
+                return true;
+            }
+
+            return false;
+        }
     }
 
     class PlayerData
     {
-        private long mPlayerID;
-        private List<ICommand> mCommandList = new List<ICommand>();
-
-        public PlayerData(long playerID)
-        {
-            mPlayerID = playerID;
-        }
-
-        public void AddCommand(ICommand command)
-        {
-            if(mCommandList != null)
-            {
-                mCommandList.Add(command);
-            }
-        }
+        public long mPlayerID;
+        public List<ICommand> mCommandList = new List<ICommand>();
     }
 }

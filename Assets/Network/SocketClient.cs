@@ -96,7 +96,7 @@ namespace Network
 
         public void Init()
         {
-            IPAddress address = IPAddress.Parse("192.168.1.236");
+            IPAddress address = IPAddress.Parse("192.168.0.173"); //1.236
             IPEndPoint endpoint = new IPEndPoint(address, 8888);
             mSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             mSocket.BeginConnect(endpoint, OnConnect, mSocket);

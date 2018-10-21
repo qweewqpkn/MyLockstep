@@ -23,9 +23,11 @@ namespace Network {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Cgxjb21tb24ucHJvdG8SB05ldHdvcmsiOgoKQzJTUGFja2FnZRIeCgJpZBgB",
-            "IAEoDjISLk5ldHdvcmsuU2VydmljZU5vEgwKBGRhdGEYAiABKAwqQQoJU2Vy",
-            "dmljZU5vEggKBG5vbmUQABIUChBDMlNCYXR0bGVDb21tYW5kEAESFAoQUzJD",
-            "QmF0dGxlQ29tbWFuZBACYgZwcm90bzM="));
+            "IAEoDjISLk5ldHdvcmsuU2VydmljZU5vEgwKBGRhdGEYAiABKAwqjQEKCVNl",
+            "cnZpY2VObxIICgRub25lEAASFAoQQzJTQmF0dGxlQ29tbWFuZBABEhQKEFMy",
+            "Q0JhdHRsZUNvbW1hbmQQAhISCg5DMlNSZWFkeUJhdHRsZRADEhIKDlMyQ1N0",
+            "YXJ0QmF0dGxlEAQSEAoMQzJTRW50ZXJSb29tEAUSEAoMUzJDRW50ZXJSb29t",
+            "EAZiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Network.ServiceNo), }, new pbr::GeneratedClrTypeInfo[] {
@@ -40,6 +42,10 @@ namespace Network {
     [pbr::OriginalName("none")] None = 0,
     [pbr::OriginalName("C2SBattleCommand")] C2SbattleCommand = 1,
     [pbr::OriginalName("S2CBattleCommand")] S2CbattleCommand = 2,
+    [pbr::OriginalName("C2SReadyBattle")] C2SreadyBattle = 3,
+    [pbr::OriginalName("S2CStartBattle")] S2CstartBattle = 4,
+    [pbr::OriginalName("C2SEnterRoom")] C2SenterRoom = 5,
+    [pbr::OriginalName("S2CEnterRoom")] S2CenterRoom = 6,
   }
 
   #endregion

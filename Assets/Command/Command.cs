@@ -1,33 +1,35 @@
 ﻿
+using Network;
+using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
 namespace LockStep
 {
-    enum CommandType
+    [Serializable]
+    public abstract class Command : ICommand
     {
-        eNone = 0,
-        eMove = 1,
-    }
+        public CommandType mCommandType;
 
-    abstract class Command : ICommand
-    {
-        private CommandType mCommandType;
+        public Command(CommandType type)
+        {
+            mCommandType = type;
+        }
 
         public abstract void Process();
 
-        public virtual T Deserialize<T>(byte[] bytes)
+        public static T Deserialize<T>(byte[] bytes)
         {
             MemoryStream ms = new MemoryStream(bytes);
             BinaryFormatter bf = new BinaryFormatter();
             return (T)bf.Deserialize(ms);
         }
 
-        public virtual byte[] Serialize()
+        public static byte[] Serialize(object obj)
         {
             MemoryStream ms = new MemoryStream();
             BinaryFormatter bf = new BinaryFormatter();
-            bf.Serialize(ms, this);
+            bf.Serialize(ms, obj);
             return ms.ToArray();
         }
     }

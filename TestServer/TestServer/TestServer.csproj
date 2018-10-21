@@ -46,9 +46,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Battle.cs" />
+    <Compile Include="BattleProxy.cs" />
     <Compile Include="Common.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IProxy.cs" />
+    <Compile Include="ProxyManager.cs" />
+    <Compile Include="Utility\Singleton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
