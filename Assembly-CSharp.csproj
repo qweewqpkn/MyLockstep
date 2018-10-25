@@ -61,19 +61,35 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Battle\BattleManager.cs" />
-    <Compile Include="Assets\Battle\BattlePlayer.cs" />
-    <Compile Include="Assets\Command\Command.cs" />
-    <Compile Include="Assets\Command\ICommand.cs" />
-    <Compile Include="Assets\Command\MoveCommand.cs" />
-    <Compile Include="Assets\Command\NullCommand.cs" />
-    <Compile Include="Assets\LockStep\ILockStep.cs" />
-    <Compile Include="Assets\LockStep\LockStepData.cs" />
-    <Compile Include="Assets\LockStep\LockStepManager.cs" />
+    <Compile Include="Assets\Game\Battle\BattleEntity.cs" />
+    <Compile Include="Assets\Game\Battle\BattleManager.cs" />
+    <Compile Include="Assets\Game\Command\Command.cs" />
+    <Compile Include="Assets\Game\Command\CommandManager.cs" />
+    <Compile Include="Assets\Game\Command\ICommand.cs" />
+    <Compile Include="Assets\Game\Command\MoveCommand.cs" />
+    <Compile Include="Assets\Game\Command\NullCommand.cs" />
+    <Compile Include="Assets\Game\Component\IComponent.cs" />
+    <Compile Include="Assets\Game\Component\MoveComponent.cs" />
+    <Compile Include="Assets\Game\Input\InputManager.cs" />
+    <Compile Include="Assets\Game\LockStep\ILockStep.cs" />
+    <Compile Include="Assets\Game\LockStep\LockStepManager.cs" />
+    <Compile Include="Assets\Game\Network\NetworkManager.cs" />
+    <Compile Include="Assets\Game\Network\Protobuf\Battle.cs" />
+    <Compile Include="Assets\Game\Network\Protobuf\Common.cs" />
+    <Compile Include="Assets\Game\Utility\Singleton.cs" />
     <Compile Include="Assets\Main.cs" />
-    <Compile Include="Assets\Network\Protobuf\Battle.cs" />
-    <Compile Include="Assets\Network\Protobuf\Common.cs" />
-    <Compile Include="Assets\Network\SocketClient.cs" />
+    <Compile Include="Assets\Sources\Generated\Contexts.cs" />
+    <Compile Include="Assets\Sources\Generated\Feature.cs" />
+    <Compile Include="Assets\Sources\Generated\Game\GameAttribute.cs" />
+    <Compile Include="Assets\Sources\Generated\Game\GameComponentsLookup.cs" />
+    <Compile Include="Assets\Sources\Generated\Game\GameContext.cs" />
+    <Compile Include="Assets\Sources\Generated\Game\GameEntity.cs" />
+    <Compile Include="Assets\Sources\Generated\Game\GameMatcher.cs" />
+    <Compile Include="Assets\Sources\Generated\Input\InputAttribute.cs" />
+    <Compile Include="Assets\Sources\Generated\Input\InputComponentsLookup.cs" />
+    <Compile Include="Assets\Sources\Generated\Input\InputContext.cs" />
+    <Compile Include="Assets\Sources\Generated\Input\InputEntity.cs" />
+    <Compile Include="Assets\Sources\Generated\Input\InputMatcher.cs" />
     <Compile Include="Assets\ThirdPart\DOTween\Modules\DOTweenModuleAudio.cs" />
     <Compile Include="Assets\ThirdPart\DOTween\Modules\DOTweenModulePhysics.cs" />
     <Compile Include="Assets\ThirdPart\DOTween\Modules\DOTweenModulePhysics2D.cs" />
@@ -81,8 +97,9 @@
     <Compile Include="Assets\ThirdPart\DOTween\Modules\DOTweenModuleUI.cs" />
     <Compile Include="Assets\ThirdPart\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
     <Compile Include="Assets\ThirdPart\DOTween\Modules\DOTweenModuleUtils.cs" />
-    <Compile Include="Assets\Utility\Singleton.cs" />
+    <Compile Include="Assets\ThirdPart\Entitas\Assets\DesperateDevs\Compile.cs" />
     <None Include="Assets\ThirdPart\DOTween\readme.txt" />
+    <None Include="Assets\ThirdPart\Entitas\Assets\Entitas\LICENSE.txt" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/Development/Unity3d/MyLockstep/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
@@ -293,11 +310,35 @@
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
-    <Reference Include="Google.Protobuf">
-      <HintPath>D:/Development/Unity3d/MyLockstep/Assets/Plugins/Google.Protobuf.dll</HintPath>
-    </Reference>
     <Reference Include="DOTween">
       <HintPath>D:/Development/Unity3d/MyLockstep/Assets/ThirdPart/DOTween/DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="DesperateDevs.Logging">
+      <HintPath>D:/Development/Unity3d/MyLockstep/Assets/ThirdPart/Entitas/Assets/DesperateDevs/DesperateDevs.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="DesperateDevs.Networking">
+      <HintPath>D:/Development/Unity3d/MyLockstep/Assets/ThirdPart/Entitas/Assets/DesperateDevs/DesperateDevs.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="DesperateDevs.Serialization">
+      <HintPath>D:/Development/Unity3d/MyLockstep/Assets/ThirdPart/Entitas/Assets/DesperateDevs/DesperateDevs.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="DesperateDevs.Utils">
+      <HintPath>D:/Development/Unity3d/MyLockstep/Assets/ThirdPart/Entitas/Assets/DesperateDevs/DesperateDevs.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="Entitas.CodeGeneration.Attributes">
+      <HintPath>D:/Development/Unity3d/MyLockstep/Assets/ThirdPart/Entitas/Assets/Entitas/Entitas.CodeGeneration.Attributes.dll</HintPath>
+    </Reference>
+    <Reference Include="Entitas">
+      <HintPath>D:/Development/Unity3d/MyLockstep/Assets/ThirdPart/Entitas/Assets/Entitas/Entitas.dll</HintPath>
+    </Reference>
+    <Reference Include="Entitas.Unity">
+      <HintPath>D:/Development/Unity3d/MyLockstep/Assets/ThirdPart/Entitas/Assets/Entitas/Entitas.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Entitas.VisualDebugging.Unity">
+      <HintPath>D:/Development/Unity3d/MyLockstep/Assets/ThirdPart/Entitas/Assets/Entitas/Entitas.VisualDebugging.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf">
+      <HintPath>D:/Development/Unity3d/MyLockstep/Assets/ThirdPart/Protobuf/Google.Protobuf.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
       <HintPath>C:/Users/Administrator/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>

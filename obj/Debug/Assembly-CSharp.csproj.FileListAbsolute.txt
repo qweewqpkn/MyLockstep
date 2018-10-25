@@ -169,3 +169,11 @@ D:\Development\Unity3d\MyLockstep\obj\Debug\Assembly-CSharp.csproj.CoreCompileIn
 D:\Development\Unity3d\MyLockstep\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 D:\Development\Unity3d\MyLockstep\obj\Debug\Assembly-CSharp.dll
 D:\Development\Unity3d\MyLockstep\obj\Debug\Assembly-CSharp.pdb
+D:\Development\Unity3d\MyLockstep\Temp\bin\Debug\DesperateDevs.Logging.dll
+D:\Development\Unity3d\MyLockstep\Temp\bin\Debug\DesperateDevs.Networking.dll
+D:\Development\Unity3d\MyLockstep\Temp\bin\Debug\DesperateDevs.Serialization.dll
+D:\Development\Unity3d\MyLockstep\Temp\bin\Debug\DesperateDevs.Utils.dll
+D:\Development\Unity3d\MyLockstep\Temp\bin\Debug\Entitas.CodeGeneration.Attributes.dll
+D:\Development\Unity3d\MyLockstep\Temp\bin\Debug\Entitas.dll
+D:\Development\Unity3d\MyLockstep\Temp\bin\Debug\Entitas.Unity.dll
+D:\Development\Unity3d\MyLockstep\Temp\bin\Debug\Entitas.VisualDebugging.Unity.dll
